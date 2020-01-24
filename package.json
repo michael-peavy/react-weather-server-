@@ -1,0 +1,49 @@
+{
+  "name": "full-stack-react-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require test/setup.js",
+    "dev": "nodemon src/server.js",
+    "migrate": "postgrator --config postgrator-config.js",
+    "migrate:test": "env NODE_ENV=test npm run migrate",
+    "migrate:production": "env SSL=true DATABASE_URL=$(heroku config:get DATABASE_URL) npm run migrate",
+    "start": "node src/server.js",
+    "predeploy": "npm audit && npm run migrate:production",
+    "deploy": "git push heroku master",
+    "client": "npm start --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mike4141/full-stack-react-app.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Michael Peavy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mike4141/full-stack-react-app/issues"
+  },
+  "homepage": "https://github.com/Mike4141/full-stack-react-app#readme",
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "nodemon": "^2.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "knex": "^0.20.4",
+    "morgan": "^1.9.1",
+    "pg": "^7.14.0",
+    "postgrator-cli": "^3.3.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "xss": "^1.0.6"
+  }
+}
