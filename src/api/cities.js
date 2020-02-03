@@ -14,8 +14,9 @@ router.get('/', function (req, res) {
 });
 
 
+// /api/cities/:city_id/item/:id
 
-
+// /api/cities/weather/
 
 router.delete('/:city_id', function (req, res) {
   const knexInstance = req.app.get('db')
@@ -38,7 +39,7 @@ router.post('/', function (req, res) {
     .then(cities => {
       res.json(cities);
     })
-    .catch(err => res.json(err));
+    .catch(err => res.status(400).json(err));
 });
 
 module.exports = router;

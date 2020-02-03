@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "create": "dropdb weather-db && createdb weather-db",
     "test": "mocha --require test/setup.js",
     "dev": "nodemon src/server.js",
     "migrate": "postgrator --config postgrator-config.js",
@@ -28,6 +29,7 @@
   },
   "homepage": "https://github.com/Mike4141/full-stack-react-app#readme",
   "devDependencies": {
+    "chai": "^4.2.0",
     "concurrently": "^5.0.0",
     "nodemon": "^2.0.1"
   },
@@ -39,11 +41,13 @@
     "express": "^4.17.1",
     "helmet": "^3.21.2",
     "knex": "^0.20.4",
+    "mocha": "^7.0.1",
     "morgan": "^1.9.1",
     "pg": "^7.14.0",
     "postgrator-cli": "^3.3.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.5",
+    "supertest": "^4.0.2",
     "xss": "^1.0.6"
   }
 }
